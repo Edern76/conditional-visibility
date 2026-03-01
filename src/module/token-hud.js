@@ -26,9 +26,11 @@ export default (TokenHUD) => class extends TokenHUD {
 			}
 
 			const visibilityButton = result.hud.querySelector(".control-icon[data-action=\"visibility\"]");
-			visibilityButton.dataset.action = "togglePalette";
-			visibilityButton.dataset.palette = "visibility";
-			visibilityButton.insertAdjacentElement("afterend", div);
+			if (visibilityButton && visibilityButton?.dataset) {
+        visibilityButton.dataset.action = "togglePalette";
+        visibilityButton.dataset.palette = "visibility";
+        visibilityButton.insertAdjacentElement("afterend", div);
+      }
 		}
 
 		return result;
